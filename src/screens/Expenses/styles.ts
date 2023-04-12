@@ -71,7 +71,7 @@ export const NameExpense = styled.Text`
 export const ValueBox = styled.View`
   display: flex;
   flex-direction: row;
-  width: 25%;
+  width: 35%;
 `;
 
 export const TextExpense = styled.Text`

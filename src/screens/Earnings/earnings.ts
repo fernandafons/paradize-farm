@@ -1,42 +1,43 @@
-export const exp = [
+
+export const earnings = [
   {
     id: 1,
-    item: 'Ração',
+    item: 'Queijo',
     value: 100,
   },
   {
     id: 2,
-    item: 'Ração galinha',
+    item: 'Ovos',
     value: 50,
   },
   {
     id: 3,
-    item: 'Madeira',
+    item: 'Requeijão',
     value: 80,
   },
   {
     id: 4,
-    item: 'Cimento',
-    value: 1256,
+    item: 'Feijão',
+    value: 126,
   },
   {
     id: 5,
-    item: 'Ração',
-    value: 100.72,
+    item: 'Café',
+    value: 10.72,
   },
   {
     id: 6,
-    item: 'Ração galinha',
+    item: 'Queijo',
     value: 50,
   },
   {
     id: 7,
-    item: 'Madeira',
+    item: 'Ovos',
     value: 80,
   },
   {
     id: 8,
-    item: 'Cimento',
+    item: 'Requeijão',
     value: 56,
   },
   {
@@ -46,52 +47,52 @@ export const exp = [
   },
   {
     id: 20,
-    item: 'Ração galinha',
+    item: 'Queijo',
     value: 50,
   },
   {
     id: 30,
-    item: 'Madeira',
+    item: 'Ovos',
     value: 80,
   },
   {
     id: 40,
-    item: 'Cimento',
-    value: 1256,
+    item: 'Requeijão',
+    value: 126,
   },
   {
     id: 50,
-    item: 'Ração',
+    item: 'Feijão',
     value: 100.72,
   },
   {
     id: 60,
-    item: 'Ração galinha',
+    item: 'Feijão',
     value: 50,
   },
   {
     id: 70,
-    item: 'Madeira',
+    item: 'Ovos',
     value: 80,
   },
   {
     id: 80,
-    item: 'Cimento',
+    item: 'Requeijão',
     value: 56,
   },
   {
     id: 61,
-    item: 'Ração galinha',
+    item: 'Feijão',
     value: 50,
   },
   {
     id: 72,
-    item: 'Madeira',
+    item: 'Ovos',
     value: 80,
   },
   {
     id: 82,
-    item: 'Cimento',
+    item: 'Requeijão',
     value: 56,
   },
 ]

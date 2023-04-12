@@ -18,15 +18,21 @@ import {
   ValueBox,
   TextExpense,
   ValueExpense,
+  VerticalLine,
 } from './styles';
+import { exp } from './expenses';
 
 const Expenses: React.FC = () => {
+  let totalExpenses = 0;
+  for (let i = 0; i < exp.length; i++) {
+    totalExpenses += exp[i].value
+  }
   return (
     <Container>
       <MonthExpenseContainer>
         <ValueBoxMonthExpense>
           <MonthExpenseText>Total de despesas {`\n`} este mês:</MonthExpenseText>
-          <MonthExpenseNumber>$ 2.980,72</MonthExpenseNumber>
+          <MonthExpenseNumber>R$ {totalExpenses}</MonthExpenseNumber>
         </ValueBoxMonthExpense>
         <ButtonBox>
           <AddExpenseButton>
@@ -36,34 +42,18 @@ const Expenses: React.FC = () => {
         </ButtonBox>
       </MonthExpenseContainer>
       <ExpensesContainer>
-        <ExpenseBox>
-          <NameExpense>Ração gado</NameExpense>
-          <ValueBox>
-            <TextExpense>R$ </TextExpense>
-            <ValueExpense>100,00</ValueExpense>
-          </ValueBox>
-        </ExpenseBox>
-        <ExpenseBox>
-          <NameExpense>Ração galinha</NameExpense>
-          <ValueBox>
-            <TextExpense>R$ </TextExpense>
-            <ValueExpense>80,00</ValueExpense>
-          </ValueBox>
-        </ExpenseBox>
-        <ExpenseBox>
-          <NameExpense>Madeira</NameExpense>
-          <ValueBox>
-            <TextExpense>R$ </TextExpense>
-            <ValueExpense>100,00</ValueExpense>
-          </ValueBox>
-        </ExpenseBox>
-        <ExpenseBox>
-          <NameExpense>Cimento</NameExpense>
-          <ValueBox>
-            <TextExpense>R$ </TextExpense>
-            <ValueExpense>100,00</ValueExpense>
-          </ValueBox>
-        </ExpenseBox>
+        {exp.map((item) =>
+          <>
+            <ExpenseBox key={item.id}>
+              <NameExpense>{item.item}</NameExpense>
+              <ValueBox>
+                <TextExpense>R$ </TextExpense>
+                <ValueExpense>{item.value}</ValueExpense>
+              </ValueBox>
+            </ExpenseBox>
+            <VerticalLine />
+          </>
+        )}
       </ExpensesContainer>
     </Container>
     )

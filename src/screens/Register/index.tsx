@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 
 import { 
@@ -20,12 +20,18 @@ import {
 } from './styles';
 
 import { data } from './registered';
+import AddModal from '../../components/AddModal';
 
 const Register: React.FC = () => {
   let totalCattle = 0;
   for (let i = 0; i < data.length; i++) {
     totalCattle += data[i].value
   }
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const showModal = () => {
+    setModalVisible(true);
+  };
   return (
     <Container>
       <TitleContainer>Últimos cadastros</TitleContainer>
@@ -44,7 +50,7 @@ const Register: React.FC = () => {
         )}
       </CattleContainer>
       <ButtonsContainer>
-        <AddButton>
+        <AddButton onPress={() => showModal()}>
           <ButtonText>Cadastrar novo</ButtonText>
         </AddButton>
         <ButtonBox>
@@ -54,6 +60,10 @@ const Register: React.FC = () => {
           <OutsideButtonText>Exportar</OutsideButtonText>
         </ButtonBox>
       </ButtonsContainer>
+      <AddModal 
+        modalVisible={modalVisible} 
+        setModalVisible={setModalVisible}
+      />
     </Container>
     )
 }

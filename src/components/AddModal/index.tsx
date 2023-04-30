@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { 
+  CenteredView,
   Container,
   ModalContainer,
   CloseButton,
@@ -9,7 +10,6 @@ import {
   ModalButton, 
   ButtonText, 
 } from './styles';
-import { Modal } from 'react-native';
 
 interface Props {
   modalVisible: boolean;
@@ -21,8 +21,8 @@ const AddModal: React.FC<Props> = ({ modalVisible, setModalVisible }) => {
 
 
   return (
-    <Container>
-      <Modal
+    <CenteredView>
+      <Container
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -44,8 +44,8 @@ const AddModal: React.FC<Props> = ({ modalVisible, setModalVisible }) => {
             </ModalButton>
           </OptionsConainer>
         </ModalContainer>
-      </Modal>
-    </Container>
+      </Container>
+    </CenteredView>
   )
 }
 

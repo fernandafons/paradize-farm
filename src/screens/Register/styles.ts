@@ -3,12 +3,22 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   display: flex;
   flex: 1;
+  /* justify-content: flex-end; */
   padding: 40px 15px 0 15px;
 `;
 
 export const TitleContainer = styled.Text`
   font-size: 22px;
   margin: 50px 0 20px 10px;
+`;
+
+export const CattleContainer = styled.ScrollView`
+  display: flex;
+  flex: 1;
+  padding: 25px;
+  background-color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `;
 
 export const ButtonsContainer = styled.View`
@@ -93,13 +103,4 @@ export const TextCattle = styled.Text`
 
 export const ValueCattle = styled.Text`
   font-size: 16px;
-`;
-
-export const CattleContainer = styled.ScrollView`
-  display: flex;
-  flex: 1;
-  padding: 25px;
-  background-color: #fff;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 `;

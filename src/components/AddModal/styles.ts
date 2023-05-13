@@ -3,10 +3,8 @@ import { Modal } from 'react-native';
 
 export const CenteredView = styled.View`
   display: flex;
-  flex: 1;
   justify-content: center;
   align-items: center;
-  margin-top: 22px;
 `;
 export const Container = styled(Modal)`
   height: 100%;
@@ -22,10 +20,12 @@ export const OptionsConainer = styled.View`
 
 export const ModalContainer = styled.View`
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;;
   background-color: white;
   elevation: 5;
   padding: 20px;
+  height: 30%;
+  margin-top: 55%;
 `;
 
 export const ModalText = styled.Text`
@@ -45,8 +45,13 @@ export const ModalButton = styled.TouchableOpacity`
 
 export const CloseButton = styled.TouchableOpacity`
   display: flex;
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  align-items: flex-end;
+`;
+
+export const CloseText = styled.Text`
+  font-size: 15px;
+  color: black;
 `;
 
 export const ButtonText = styled.Text`

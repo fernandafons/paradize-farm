@@ -6,10 +6,12 @@ import {
   ModalContainer,
   CloseButton,
   OptionsConainer,
-  ModalText, 
+  ModalText,
+  CloseText,
   ModalButton, 
   ButtonText, 
 } from './styles';
+import { View } from 'react-native';
 
 interface Props {
   modalVisible: boolean;
@@ -30,9 +32,10 @@ const AddModal: React.FC<Props> = ({ modalVisible, setModalVisible }) => {
           setModalVisible(false);
         }}
       >
+        <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
         <ModalContainer>
           <CloseButton onPress={() => setModalVisible(false)}>
-            <ButtonText>X</ButtonText>
+            <CloseText>X</CloseText>
           </CloseButton>
           <ModalText>Adicionar:</ModalText>
           <OptionsConainer>
@@ -44,6 +47,7 @@ const AddModal: React.FC<Props> = ({ modalVisible, setModalVisible }) => {
             </ModalButton>
           </OptionsConainer>
         </ModalContainer>
+        </View>
       </Container>
     </CenteredView>
   )

@@ -22,7 +22,11 @@ import {
 import { data } from './registered';
 import AddModal from '../../components/AddModal';
 
-const Register: React.FC = () => {
+interface Props {
+  navigation: any;
+}
+
+const Register: React.FC<Props> = ({ navigation }) => {
   let totalCattle = 0;
   for (let i = 0; i < data.length; i++) {
     totalCattle += data[i].value
@@ -32,6 +36,7 @@ const Register: React.FC = () => {
   const showModal = () => {
     setModalVisible(true);
   };
+
   return (
     <Container>
       <TitleContainer>Últimos cadastros</TitleContainer>
@@ -63,6 +68,7 @@ const Register: React.FC = () => {
       <AddModal 
         modalVisible={modalVisible} 
         setModalVisible={setModalVisible}
+        navigation={navigation}
       />
     </Container>
     )

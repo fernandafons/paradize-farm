@@ -16,10 +16,11 @@ import { View } from 'react-native';
 interface Props {
   modalVisible: boolean;
   setModalVisible: (newValue: boolean) => void;
+  navigation: any;
 }
 
 
-const AddModal: React.FC<Props> = ({ modalVisible, setModalVisible }) => {
+const AddModal: React.FC<Props> = ({ modalVisible, setModalVisible, navigation }) => {
 
 
   return (
@@ -39,7 +40,7 @@ const AddModal: React.FC<Props> = ({ modalVisible, setModalVisible }) => {
           </CloseButton>
           <ModalText>Adicionar:</ModalText>
           <OptionsConainer>
-            <ModalButton>
+            <ModalButton onPress={() => navigation.navigate('AddLote')}>
               <ButtonText>Lote</ButtonText>
             </ModalButton>
             <ModalButton>

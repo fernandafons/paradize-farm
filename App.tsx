@@ -10,10 +10,27 @@ import { Container } from './styles';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { Stack } from '@mui/material';
+import AddLote from './src/screens/AddLote';
+import AddOne from './src/screens/AddOne';
 
 export default function App() {
   const Tab = createBottomTabNavigator();
-  // const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator();
+
+  function StackScreen(){
+    return (
+      <Stack.Navigator 
+        screenOptions={{
+          headerShown: false
+        }}
+      >
+        <Stack.Screen name="Cadastro" component={Register} />
+        <Stack.Screen name="AddLote" component={AddLote}/>
+        <Stack.Screen name="AddOne" component={AddOne}/>
+      </Stack.Navigator>
+    )
+  }
   return (
     <Container>
       <NavigationContainer>
@@ -33,7 +50,7 @@ export default function App() {
             tabBarInactiveTintColor: 'gray',
           })}
           >
-          <Tab.Screen name="Cadastro" component={Register} />
+          <Tab.Screen name="Cadastro" component={StackScreen} />
           <Tab.Screen name="Despesas" component={Expenses} />
           <Tab.Screen name="Ganhos" component={Earnings} />
         </Tab.Navigator>

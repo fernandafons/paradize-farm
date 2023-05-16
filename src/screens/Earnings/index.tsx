@@ -21,7 +21,11 @@ import {
 
 import { earnings } from './earnings';
 
-const Earnings: React.FC = () => {
+interface Props {
+  navigation: any;
+}
+
+const Earnings: React.FC<Props> = ({ navigation }) => {
   let totalEarnings = 0;
   for (let i = 0; i < earnings.length; i++) {
     totalEarnings += earnings[i].value
@@ -34,7 +38,7 @@ const Earnings: React.FC = () => {
           <MonthEarningNumber>R$ {totalEarnings}</MonthEarningNumber>
         </ValueBoxMonthEarning>
         <ButtonBox>
-          <AddEarningButton>
+          <AddEarningButton onPress={() => navigation.navigate('AddEarning')}>
             <ButtonText>+</ButtonText>
           </AddEarningButton>
           <OutsideButtonText>Cadastrar {`\n`}ganho</OutsideButtonText>

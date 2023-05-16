@@ -13,6 +13,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Stack } from '@mui/material';
 import AddCattle from './src/screens/AddCattle';
 import AddExpense from './src/screens/AddExpense';
+import AddEarning from './src/screens/AddEarning';
 
 export default function App() {
   const Tab = createBottomTabNavigator();
@@ -43,6 +44,19 @@ export default function App() {
       </Stack.Navigator>
     )
   }
+
+  function StackEarnings(){
+    return (
+      <Stack.Navigator 
+        screenOptions={{
+          headerShown: false
+        }}
+      >
+        <Stack.Screen name="Earnings" component={Earnings} />
+        <Stack.Screen name="AddEarning" component={AddEarning}/>
+      </Stack.Navigator>
+    )
+  }
   return (
     <Container>
       <NavigationContainer>
@@ -64,7 +78,7 @@ export default function App() {
           >
           <Tab.Screen name="Cadastro" component={StackScreen} />
           <Tab.Screen name="Despesas" component={StackExpenses} />
-          <Tab.Screen name="Ganhos" component={Earnings} />
+          <Tab.Screen name="Ganhos" component={StackEarnings} />
         </Tab.Navigator>
         </NavigationContainer>
     </Container>

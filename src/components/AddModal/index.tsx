@@ -40,7 +40,7 @@ const AddModal: React.FC<Props> = ({ modalVisible, setModalVisible, navigation }
           </CloseButton>
           <ModalText>Adicionar:</ModalText>
           <OptionsConainer>
-            <ModalButton onPress={() => navigation.navigate('AddLote')}>
+            <ModalButton onPress={() => navigation.navigate('AddCattle')}>
               <ButtonText>Lote</ButtonText>
             </ModalButton>
             <ModalButton>

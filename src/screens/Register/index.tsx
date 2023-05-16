@@ -55,7 +55,7 @@ const Register: React.FC<Props> = ({ navigation }) => {
         )}
       </CattleContainer>
       <ButtonsContainer>
-        <AddButton onPress={() => showModal()}>
+        <AddButton onPress={() => navigation.navigate('AddCattle')}>
           <ButtonText>Cadastrar novo</ButtonText>
         </AddButton>
         <ButtonBox>
@@ -65,11 +65,6 @@ const Register: React.FC<Props> = ({ navigation }) => {
           <OutsideButtonText>Exportar</OutsideButtonText>
         </ButtonBox>
       </ButtonsContainer>
-      <AddModal 
-        modalVisible={modalVisible} 
-        setModalVisible={setModalVisible}
-        navigation={navigation}
-      />
     </Container>
     )
 }

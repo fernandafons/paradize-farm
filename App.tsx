@@ -11,7 +11,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Stack } from '@mui/material';
-import AddLote from './src/screens/AddLote';
+import AddCattle from './src/screens/AddCattle';
 import AddOne from './src/screens/AddOne';
 
 export default function App() {
@@ -26,7 +26,7 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Cadastro" component={Register} />
-        <Stack.Screen name="AddLote" component={AddLote}/>
+        <Stack.Screen name="AddCattle" component={AddCattle}/>
         <Stack.Screen name="AddOne" component={AddOne}/>
       </Stack.Navigator>
     )

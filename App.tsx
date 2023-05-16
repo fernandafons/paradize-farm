@@ -12,7 +12,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Stack } from '@mui/material';
 import AddCattle from './src/screens/AddCattle';
-import AddOne from './src/screens/AddOne';
+import AddExpense from './src/screens/AddExpense';
 
 export default function App() {
   const Tab = createBottomTabNavigator();
@@ -27,7 +27,19 @@ export default function App() {
       >
         <Stack.Screen name="Cadastro" component={Register} />
         <Stack.Screen name="AddCattle" component={AddCattle}/>
-        <Stack.Screen name="AddOne" component={AddOne}/>
+      </Stack.Navigator>
+    )
+  }
+
+  function StackExpenses(){
+    return (
+      <Stack.Navigator 
+        screenOptions={{
+          headerShown: false
+        }}
+      >
+        <Stack.Screen name="Expenses" component={Expenses} />
+        <Stack.Screen name="AddExpense" component={AddExpense}/>
       </Stack.Navigator>
     )
   }
@@ -51,7 +63,7 @@ export default function App() {
           })}
           >
           <Tab.Screen name="Cadastro" component={StackScreen} />
-          <Tab.Screen name="Despesas" component={Expenses} />
+          <Tab.Screen name="Despesas" component={StackExpenses} />
           <Tab.Screen name="Ganhos" component={Earnings} />
         </Tab.Navigator>
         </NavigationContainer>

@@ -21,7 +21,11 @@ import {
 } from './styles';
 import { exp } from './expenses';
 
-const Expenses: React.FC = () => {
+interface Props {
+  navigation: any;
+}
+
+const Expenses: React.FC<Props> = ({ navigation }) => {
   let totalExpenses = 0;
   for (let i = 0; i < exp.length; i++) {
     totalExpenses += exp[i].value
@@ -34,7 +38,7 @@ const Expenses: React.FC = () => {
           <MonthExpenseNumber>R$ {totalExpenses}</MonthExpenseNumber>
         </ValueBoxMonthExpense>
         <ButtonBox>
-          <AddExpenseButton>
+          <AddExpenseButton onPress={() => navigation.navigate('AddExpense')}>
             <ButtonText>+</ButtonText>
           </AddExpenseButton>
           <OutsideButtonText>Cadastrar {`\n`}despesa</OutsideButtonText>

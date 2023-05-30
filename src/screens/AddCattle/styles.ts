@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import SelectDropdown from 'react-native-select-dropdown';
 
 export const Container = styled.View`
   flex: 1;

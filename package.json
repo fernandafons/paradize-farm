@@ -14,6 +14,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.0",
     "@mui/styled-engine-sc": "^5.12.0",
+    "@react-native-community/datetimepicker": "6.7.3",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native-stack": "^6.9.12",
     "@types/react": "~18.0.27",
@@ -21,6 +22,7 @@
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.6",
+    "react-native-select-dropdown": "^3.3.3",
     "styled-components": "^5.3.9",
     "typescript": "^4.9.4"
   },

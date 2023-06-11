@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SelectDropdown from 'react-native-select-dropdown';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -16,6 +16,11 @@ import { Button } from 'react-native';
 
 const AddCattle: React.FC = () => {
   const [date, setDate] = useState(new Date());
+  const [day, setDay] = useState(date.getDate());
+  const [month, setMonth] = useState(date.getMonth() + 1);
+  const [year, setYear] = useState(date.getFullYear().toString().slice(-2));
+  console.log('DAte: ', date);
+  console.log('DAte: ', date.toISOString());
   const type = ['Nascimento', 'Compra'];
   const genre = ['Femea', 'Macho']; 
   const [show, setShow] = useState(false);
@@ -27,6 +32,12 @@ const AddCattle: React.FC = () => {
     setDate(currentDate);
     console.log(currentDate)
   };
+
+  useEffect(() => {
+    setDay(date.getDate());
+    setMonth(date.getMonth() + 1);
+    setYear(date.getFullYear().toString().slice(-2));
+  }, [date]);
 
   return (
     <Container>
@@ -55,7 +66,7 @@ const AddCattle: React.FC = () => {
         </Field>
         <Field>
           <FieldName>Data de nascimento: </FieldName>
-          <Button title={toString(date)} onPress={() => setShow(true)}/>
+          <Button title={`${day}/${month}/${year}`} onPress={() => setShow(true)}/>
           {show && 
             <DateTimePicker
             testID="dateTimePicker"

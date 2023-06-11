@@ -2,18 +2,23 @@ import styled from "styled-components/native";
 import SelectDropdown from 'react-native-select-dropdown';
 
 export const Container = styled.View`
+  display: flex;
   flex: 1;
-  padding: 20px;
+  margin: 20px;
   align-items: center;
   justify-content: center;
 `;
 
-export const Forms = styled.View`
-  display: flex;
-  width: 90%;
-  height: 85%;
+export const Forms = styled.ScrollView`
+  width: 100%;
+  height: 100%;
   padding-top: 30px;
+`;
+
+export const ViewInsideScroll = styled.View`
+  display: flex;
   justify-content: center;
+  padding-bottom: 30px;
 `;
 
 export const FieldName = styled.Text`

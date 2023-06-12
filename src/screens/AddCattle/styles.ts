@@ -52,6 +52,18 @@ export const Input = styled.TextInput`
   background-color: white;
 `;
 
+export const LongTextInput = styled.TextInput`
+  width: 60%;
+  padding-left: 5px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 6px;
+  padding-right: 12px;
+  border-width: 1px;
+  border-color: gray;
+  background-color: white;
+`;
+
 export const AddButton = styled.TouchableOpacity`
   background-color: gray;
   margin-top: 50px;

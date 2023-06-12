@@ -9,6 +9,7 @@ import {
   Field,
   FieldName,
   Input,
+  LongTextInput,
   InputText,
   AddButton,
   ButtonText,
@@ -16,10 +17,17 @@ import {
 import { Button } from 'react-native';
 
 const AddCattle: React.FC = () => {
-  const [selectedType, setSelectedType] = useState('Nascimento');
   const [female, setFemale] = useState(true);
+  const [obs, setObs] = useState('');
+  const [age, setAge] = useState(0);
+  const [brinco, setBrinco] = useState('');
+  const [brincoMae, setBrincoMae] = useState('');
+  const [name, setName] = useState('');
+  const [weight, setWeight] = useState('');
+  const [price, setPrice] = useState('');
   const [almojada, setAlmojada] = useState(true);
   const [date, setDate] = useState(new Date());
+  const [monthPregnancy, setMonthPregnancy] = useState('0');
   const [day, setDay] = useState(date.getDate());
   const [month, setMonth] = useState(date.getMonth() + 1);
   const [year, setYear] = useState(date.getFullYear().toString().slice(-2));
@@ -51,6 +59,48 @@ const AddCattle: React.FC = () => {
       } else {
         setAlmojada(false);
     }
+  }
+
+  
+  const handleAdd = () => {
+    const today = new Date();
+    const ageInMonths = age ? age : 
+      today.getMonth() + 1 - date.getMonth() + 1;
+
+    const setCategory = () => {
+      if (female) {
+        if (ageInMonths < 12) {
+          return 'Bezerra'
+        } else if (ageInMonths > 12 && ageInMonths < 36) {
+          return 'Novilha'
+        } else {
+          return 'Vaca'
+        };
+      }
+      if (ageInMonths < 12) {
+        return 'Bezerro'
+      } else if (ageInMonths > 12 && ageInMonths < 36) {
+        return 'Novilho'
+      } else {
+        return 'Touro'
+      };
+    }
+
+    const dataToBeSaved = {
+      tipo: isPurchase ? 'Compra' : 'Nascimento',
+      sexo: female ? 'Femea' : 'Macho',
+      brinco: brinco,
+      categoria: setCategory(),
+      brinco_mae: brincoMae,
+      nome: name,
+      peso: weight,
+      valor: price,
+      almojada: almojada,
+      tempo_gestacao: monthPregnancy,
+      idade_meses: ageInMonths,
+      data_nascimento: date,
+    }
+    console.log('data:', dataToBeSaved);
   }
 
   useEffect(() => {
@@ -87,11 +137,18 @@ const AddCattle: React.FC = () => {
           </Field>
           <Field>
             <FieldName>Brinco: </FieldName>
-            <Input keyboardType="numeric" />
+            <Input 
+              keyboardType="numeric"
+              onChangeText={(e) => setBrinco(e)}
+              value={brinco}
+            />
           </Field>
           <Field>
             <FieldName>Nome: </FieldName>
-            <Input />
+            <Input
+              onChangeText={(e) => setName(e)}
+              value={name}
+            />
           </Field>
           {!isPurchase && 
             <>
@@ -109,7 +166,11 @@ const AddCattle: React.FC = () => {
               </Field>
               <Field>
                 <FieldName>Brinco da mãe: </FieldName>
-                <Input keyboardType="numeric" />
+                <Input 
+                  keyboardType="numeric"
+                  onChangeText={(e) => setBrincoMae(e)}
+                  value={brincoMae}
+                />
               </Field>
             </>
           }
@@ -120,6 +181,7 @@ const AddCattle: React.FC = () => {
                 <Input 
                   keyboardType="numeric" 
                   placeholder='em meses'
+                  onChangeText={(e) => setAge(e)}
                 />
               </Field>
               <Field>
@@ -127,6 +189,8 @@ const AddCattle: React.FC = () => {
                 <Input 
                   keyboardType="numeric" 
                   placeholder='em kg'
+                  onChangeText={(e) => setWeight(e)}
+                  value={weight}
                 />
               </Field>
               <Field>
@@ -134,6 +198,8 @@ const AddCattle: React.FC = () => {
                 <Input 
                   keyboardType="numeric"
                   placeholder="R$ 0.000,00"
+                  onChangeText={(e) => setPrice(e)}
+                  value={price}
                 />
               </Field>
               {female &&
@@ -152,6 +218,8 @@ const AddCattle: React.FC = () => {
                       <Input 
                         keyboardType="numeric" 
                         placeholder='em meses'
+                        onChangeText={(e) => setMonthPregnancy(e)}
+                        value={monthPregnancy}
                       />
                   </Field>
                   }
@@ -159,7 +227,16 @@ const AddCattle: React.FC = () => {
               }
             </>
           }
-          <AddButton>
+          <Field>
+            <FieldName>Observação: </FieldName>
+            <LongTextInput 
+              onChangeText={(e) => setObs(e)}
+              value={obs}
+              multiline={true}
+              numberOfLines={4}
+            />
+          </Field>
+          <AddButton onPress={() => handleAdd()}>
             <ButtonText>Adicionar</ButtonText>
           </AddButton>
         </ViewInsideScroll>

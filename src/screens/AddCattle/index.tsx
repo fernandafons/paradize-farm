@@ -99,6 +99,7 @@ const AddCattle: React.FC = () => {
       tempo_gestacao: monthPregnancy,
       idade_meses: ageInMonths,
       data_nascimento: date,
+      observacao: obs,
     }
     console.log('data:', dataToBeSaved);
   }

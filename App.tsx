@@ -12,6 +12,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Stack } from '@mui/material';
 import AddCattle from './src/screens/AddCattle';
+import AddPregnancy from './src/screens/AddPregnancy';
 import AddExpense from './src/screens/AddExpense';
 import AddEarning from './src/screens/AddEarning';
 
@@ -28,6 +29,7 @@ export default function App() {
       >
         <Stack.Screen name="Cadastro" component={Register} />
         <Stack.Screen name="AddCattle" component={AddCattle}/>
+        <Stack.Screen name="AddPregnancy" component={AddPregnancy}/>
       </Stack.Navigator>
     )
   }

@@ -15,7 +15,7 @@ import {
 const AddPregnancy: React.FC = () => {
   const [obs, setObs] = useState('');
   const [brinco, setBrinco] = useState('');
-  const [monthPregnancy, setMonthPregnancy] = useState('0');
+  const [monthPregnancy, setMonthPregnancy] = useState('');
 
   
   const handleAdd = () => {

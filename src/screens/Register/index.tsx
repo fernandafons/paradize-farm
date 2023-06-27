@@ -54,6 +54,9 @@ const Register: React.FC<Props> = ({ navigation }) => {
           </>
         )}
       </CattleContainer>
+        <AddButton onPress={() => navigation.navigate('Delete')}>
+          <ButtonText>Deletar Cadastro</ButtonText>
+        </AddButton>
         <AddButton onPress={() => navigation.navigate('AddPregnancy')}>
           <ButtonText>Cadastrar prenhez</ButtonText>
         </AddButton>
